@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <title>頁面已搬遷｜M+大雅教會</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f7f5f1; color: #173b34; }
+    main { width: min(90vw, 480px); padding: 36px; border-radius: 24px; background: #fff; box-shadow: 0 14px 48px #173b3414; }
+    .brand { color: #bc4b36; font-size: 13px; font-weight: 800; letter-spacing: .12em; }
+    h1 { margin: 20px 0 12px; font-size: clamp(25px, 6vw, 32px); line-height: 1.3; }
+    p { line-height: 1.8; color: #53645e; }
+    a { display: inline-block; margin-top: 12px; padding: 12px 20px; border-radius: 12px; background: #bd4a36; color: #fff; font-weight: 700; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #173b34; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">M+ 大雅教會</div>
+    <h1>這個頁面已搬到新網站</h1>
+    <p>我們已整理新的網站入口。請從下方繼續瀏覽。</p>
+    <a id="destination" href="https://mchurch.online/">前往 M+大雅教會</a>
+  </main>
+  <script>
+    const path = location.pathname.toLowerCase();
+    const routes = [
+      [/^\/post(?:\/|$)/, ['weekly-archive.html', '查看過去週報']],
+      [/^\/group(?:\/|$)/, ['group-resources.html', '查看小組資源']],
+      [/^\/general-8\/?$/, ['newcomers.html', '查看第一次來訪指南']],
+      [/^\/live\/?$/, ['sermons.html', '查看主日信息']],
+      [/^\/team-3\/?$/, ['group-resources.html', '查看教會小組']],
+      [/^\/tcsc\/?$/, ['about.html', '認識 M+大雅教會']]
+    ];
+    const match = routes.find(([pattern]) => pattern.test(path));
+    if (match) {
+      const link = document.getElementById('destination');
+      link.href = 'https://mchurch.online/' + match[1][0];
+      link.textContent = match[1][1];
+    }
+  </script>
+</body>
+</html>
